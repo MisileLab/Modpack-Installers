@@ -44,16 +44,17 @@ class MyWindow(QMainWindow, form_class):
         self.pushButton_2.clicked.connect(btn2_clicked)
         self.setWindowTitle('QCheckBox')
         self.pushButton_3.clicked.connect(self.btn3_clicked)
-        self.checkBox1 = QCheckBox("CreativeCraft+", self)
-        self.checkBox1.move(10, 20)
-    def closeEvent(self, event):
-        self.deleteLater()
+        self.CreativeCraftPlus = QCheckBox("CreativeCraft+", self)
+        self.CreativeCraftPlus.move(10, 10)
+        self.BasicCraft = QCheckBox("BasicCraft", self)
+        self.BasicCraft.move(10, 30)
     def btn3_clicked(self):
-        if self.checkBox1.isChecked():
+        print("1234")
+        if self.CreativeCraftPlus.isChecked():
             try:
-                os.remove("CreativeCraft+ Mods")
+                os.rmdir("CreativeCraft+ Mods")
                 os.remove("CreativeCraft+.zip")
-                os.remove("CreativeCraft--main")
+                os.rmdir("CreativeCraft--main")
             except FileNotFoundError or FileExistsError:
                 pass
             os.system("curl https://codeload.github.com/MisileLab/CreativeCraft-/zip/main > CreativeCraft+.zip")
@@ -61,11 +62,25 @@ class MyWindow(QMainWindow, form_class):
             os.remove("CreativeCraft+.zip")
             os.makedirs("CreativeCraft+ Mods")
             shutil.move("CreativeCraft--main\overrides\mods", "CreativeCraft+ Mods")
-            os.remove("./CreativeCraft--main")
-        else:
-            print("SANS")
-
-
+            os.rmdir("CreativeCraft--main")
+        if self.BasicCraft.isChecked():
+            try:
+                os.rmdir("BasicCraft Mods")
+                os.remove("BasicCraft.zip")
+                os.rmdir("Basiccraft-main")
+            except FileNotFoundError or FileExistsError:
+                pass
+                print("2130")
+            os.system("curl https://codeload.github.com/MisileLab/basiccraft/zip/main > BasicCraft.zip")
+            os.system("unzip BasicCraft.zip")
+            os.remove("BasicCraft.zip")
+            os.makedirs("BasicCraft Mods")
+            if self.plainTextEdit.toPlainText() == "1.16.5":
+                shutil.move("Basiccraft-main\\1.16.5", "BasicCraft Mods")
+                os.rmdir("Basiccraft-main")
+            elif self.plainTextEdit.toPlainText() == "1.16.4":
+                shutil.move("Basiccraft-main\\1.16.4", "BasicCraft Mods")
+                os.rmdir("Basiccraft-main")
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
