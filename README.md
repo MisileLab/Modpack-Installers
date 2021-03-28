@@ -9,6 +9,6 @@ python main.py
 ```
 
 Supported Modpack:   
-[BasicCraft](https://github.com/MisileLab/BasicCraft)
-[CreativeCraft+](https://github.com/MisileLab/CreativeCraft-)
-[CreateModpack](https://github.com/MisileLab/CreateModpack)
+[BasicCraft](https://github.com/MisileLab/BasicCraft)   
+[CreativeCraft+](https://github.com/MisileLab/CreativeCraft-)   
+[CreateModpack](https://github.com/MisileLab/CreateModpack)   
