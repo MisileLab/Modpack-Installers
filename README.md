@@ -8,6 +8,11 @@ In cmd:
 python main.py
 ```
 
+```python
+if speed == "slow":
+  convert("python to other language")
+```
+
 Supported Modpack:   
 [BasicCraft](https://github.com/MisileLab/BasicCraft)   
 [CreativeCraft+](https://github.com/MisileLab/CreativeCraft-)   
