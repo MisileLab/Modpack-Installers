@@ -16,5 +16,5 @@ if speed == "slow":
 Supported Modpack:   
 [BasicCraft](https://github.com/MisileLab/BasicCraft)   
 [CreativeCraft+](https://github.com/MisileLab/CreativeCraft-)   
-[CreateModpack](https://github.com/MisileLab/CreateModpack)
+[CreateModpack](https://github.com/MisileLab/CreateModpack)   
 [CreateModpackLite](https://github.com/MisileLab/CreateModpackLite)
