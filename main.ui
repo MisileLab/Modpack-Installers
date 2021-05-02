@@ -140,6 +140,19 @@
      <string>This Version Lifetime</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="CreateModpackLite">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CreateModpackLite</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

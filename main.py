@@ -50,6 +50,14 @@ def deletetest(modfolder:str, repo:str, branch:str="main"):
     except FileNotFoundError:
         raise FileNotFoundError
 
+def download(repo:str, branch:str="main"):
+    os.system(f"curl https://codeload.github.com/MisileLab/{repo}/zip/{branch} > {repo}.zip")
+    os.system(f"unzip {repo}.zip")
+    os.remove(f"{repo}.zip")
+    os.makedirs(f"{repo} mods")
+    shutil.move(f"{repo}-{branch}\mods", "CreateModpack mods")
+    shutil.rmtree(path + fr"\{repo}-{branch}")
+
 class MyWindow(QMainWindow, form_class):
     def __init__(self):
         global modpack
@@ -102,6 +110,13 @@ class MyWindow(QMainWindow, form_class):
             shutil.move("CreateModpack-main\overrides\mods", "CreateModpack mods")
             shutil.rmtree(path + "\CreateModpack-main")
             Notice(self, modpackname="CreateModpack")
+        if self.CreateModpackLite.isChecked():
+            try:
+                deletetest(modfolder="CreateModpackLite mods", repo="CreateModpackLite")
+            except FileNotFoundError:
+                pass
+            download("CreateModpackLite")
+            Notice(self, modpackname="CreateModpackLite")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
